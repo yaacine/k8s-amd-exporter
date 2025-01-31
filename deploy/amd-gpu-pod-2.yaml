@@ -1,0 +1,123 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: amd-smi-exporter-v2
+  name: amd-smi-exporter-v2
+  namespace: amdexporter-amdsmiexporter
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.oip/tenant
+            operator: In
+            values:
+            - amdexporter
+  containers:
+  - image: registry.gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/amd-smi-exporter:0.1.0
+    imagePullPolicy: Always
+    name: amd-smi-exporter-v2-container
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    command: ["/amd-smi-exporter"]
+    args:
+      - "--name=amd-exporter"
+      - "--device=/dev/cpu"
+      - "--device=/dev/kfd"
+      - "--device=/dev/dri"
+    securityContext:
+      privileged: true #Needed for /dev
+      capabilities:
+        drop: ["ALL"]
+    env:
+    - name: ENABLE_DEBUG_LEVEL
+      value: "1"
+    - name: AMD_EXPORTER_LOG_LEVEL
+      value: "development"
+    - name: AMD_EXPORTER_POD_LABELS                                                                                                                                                                           
+      value: oip/author-username,oip/tenant-id,oip/workspace-id
+    - name: AMD_EXPORTER_POD_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.name
+    - name: AMD_EXPORTER_NAMESPACE
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace
+    - name: AMD_EXPORTER_NODE_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.nodeName
+    resources:
+      limits:
+        cpu: "250m"
+        memory:  36Mi
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-f7r6g
+      readOnly: true
+    - name: "pod-gpu-resources"
+      readOnly: true
+      mountPath: "/var/lib/kubelet/pod-resources"
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: cluster-26de75bb-pool-37a8eec1-9tpd7-vjr75
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: volcano
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoSchedule
+    key: tenant
+    operator: Equal
+    value: amdexporter
+  - effect: NoExecute
+    key: tenant
+    operator: Equal
+    value: amdexporter
+  - effect: NoSchedule
+    key: target
+    operator: Equal
+    value: k8s
+  - effect: NoExecute
+    key: target
+    operator: Equal
+    value: k8s
+  imagePullSecrets:
+    - name: registry-key
+  volumes:
+  - name: "pod-gpu-resources"
+    hostPath:
+      path:  "/var/lib/kubelet/pod-resources"
+  - name: kube-api-access-f7r6g
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace

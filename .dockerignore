@@ -1,0 +1,4 @@
+.env
+deploy/
+bin/
+.golangci.yml

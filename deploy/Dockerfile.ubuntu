@@ -1,0 +1,23 @@
+# FROM registry.gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/amd-smi-exporter-base:0.0.1 as builder
+FROM registry.gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/amd-smi-exporter-base-dev:0.0.1 as builder
+
+ARG appVersion
+ARG commitHash
+ARG buildDate
+
+ENV APP_VERSION=$appVersion
+ENV COMMIT_HASH=$commitHash
+ENV BUILD_DATE=$buildDate
+ENV LD_LIBRARY_PATH=/opt/goamdsmi/lib:/opt/e-sms/e_smi/lib:/opt/rocm/lib:/opt/rocm/lib64
+
+WORKDIR /app
+COPY . ./
+RUN go mod tidy
+RUN make build-linux
+
+# Run stage
+FROM registry.gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/amd-smi-exporter-base:0.0.1
+COPY --from=0 /app/bin/amd-smi-exporter /amd-smi-exporter
+ENV LD_LIBRARY_PATH=/opt/goamdsmi/lib:/opt/e-sms/e_smi/lib:/opt/rocm/lib:/opt/rocm/lib64
+ENV PATH="$PATH:/opt/rocm/bin"
+CMD [ "/amd-smi-exporter" ]

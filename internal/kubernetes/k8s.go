@@ -8,8 +8,8 @@ import (
 	"slices"
 	"strings"
 
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
-	podbus "gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/pods"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
+	podbus "github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/resolver"

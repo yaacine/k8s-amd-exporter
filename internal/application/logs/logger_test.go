@@ -5,9 +5,9 @@ import (
 	"log/slog"
 	"testing"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application/logs"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application/settings"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application/logs"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application/settings"
 )
 
 func TestMakeLogger(t *testing.T) {

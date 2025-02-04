@@ -17,7 +17,7 @@ REGISTRY_SERVER ?= registry.gitlab.com/openinnovationai/platform/infra/amd/amd_s
 OPENINNOVATIONAI_IMAGE ?= $(REGISTRY_SERVER)/$(IMAGE):$(APP_VERSION)
 OPENINNOVATIONAI_BASE_IMAGE ?= $(REGISTRY_SERVER)/$(BASE_IMAGE):$(BASE_IMAGE_VERSION)
 OPENINNOVATIONAI_BASE_DEV_IMAGE ?= $(REGISTRY_SERVER)/$(BASE_DEV_IMAGE):$(BASE_DEV_IMAGE_VERSION)
-GO_MODULE_NAME=gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2
+GO_MODULE_NAME=github.com/openinnovationai/k8s-amd-exporter
 LDFLAGS_APPLICATION_VERSION=$(GO_MODULE_NAME)/internal/application.version=${APP_VERSION}
 LDFLAGS_COMMIT_HASH=$(GO_MODULE_NAME)/internal/application.commitHash=${COMMIT_HASH}
 LDFLAGS_BUILD_DATE=$(GO_MODULE_NAME)/internal/application.buildDate=${BUILD_DATE}

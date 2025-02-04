@@ -3,13 +3,13 @@ package metrics_test
 import (
 	"testing"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/metrics"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/testlogs"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/metricfixtures"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/metrics"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/pods"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/metricfixtures"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/testlogs"
 )
 
 func TestNewAMDMetrics(t *testing.T) {

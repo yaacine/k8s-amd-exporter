@@ -13,12 +13,12 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/kubernetes/fake"
 
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/pods"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/kubernetes"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/e2etests"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/fakekubelet"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/k8sfixtures"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/testlogs"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/kubernetes"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/e2etests"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/fakekubelet"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/k8sfixtures"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/testlogs"
 )
 
 func TestListPods(t *testing.T) {

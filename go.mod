@@ -1,4 +1,4 @@
-module gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2
+module github.com/openinnovationai/k8s-amd-exporter
 
 go 1.23.3
 

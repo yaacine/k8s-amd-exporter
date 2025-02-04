@@ -7,9 +7,9 @@ import (
 	"slices"
 	"strconv"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
 	"github.com/prometheus/client_golang/prometheus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/pods"
 )
 
 // CustomMetric defines data required to build a metric.

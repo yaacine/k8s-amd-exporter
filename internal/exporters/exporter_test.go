@@ -3,15 +3,15 @@ package exporters_test
 import (
 	"testing"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/fakekubelet"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/k8sfixtures"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/metricfixtures"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/testlogs"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/fakekubelet"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/k8sfixtures"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/metricfixtures"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/testlogs"
 	"k8s.io/client-go/kubernetes/fake"
 )
 

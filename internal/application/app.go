@@ -7,14 +7,14 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/amd"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application/logs"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application/settings"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application/web"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/kubernetes"
 	"github.com/prometheus/client_golang/prometheus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/amd"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application/logs"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application/settings"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application/web"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/kubernetes"
 )
 
 var (

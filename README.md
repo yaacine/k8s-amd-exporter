@@ -1,7 +1,9 @@
-# amd_smi_exporter_v2
+# AMD SMI Exporter 
 
-The AMD SMI Exporter V2 is an application that exports AMD CPU & GPU metrics to the Prometheus server. employs the [E-SMI In-Band C library](https://github.com/amd/esmi_ib_library.git) & [ROCm SMI Library](https://github.com/RadeonOpenCompute/rocm_smi_lib.git) for its data acquisition. The exporter and the E-SMI/ROCm-SMI library have a
+The AMD SMI Exporter is an application that exports AMD CPU & GPU metrics to the Prometheus server. It employs the [E-SMI In-Band C library](https://github.com/amd/esmi_ib_library.git) & [ROCm SMI Library](https://github.com/RadeonOpenCompute/rocm_smi_lib.git) for its data acquisition. The exporter and the E-SMI/ROCm-SMI library have a
 [GO binding](https://github.com/amd/go_amd_smi.git) that provides an interface between the e-smi,rocm-smi C,C++ library and the GO exporter code.
+
+This project is an enhancement of the [AMD SMI Exporter](https://github.com/amd/amd_smi_exporter.git) project.
 
 ## Dependencies
 

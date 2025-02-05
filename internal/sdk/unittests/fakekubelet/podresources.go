@@ -7,8 +7,8 @@ import (
 
 	"net"
 
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/kubernetes"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/sdk/unittests/testlogs"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/kubernetes"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/testlogs"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/test/bufconn"

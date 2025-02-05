@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application"
 )
 
 func main() {

@@ -4,9 +4,9 @@ import (
 	"os"
 	"testing"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/application/settings"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/application/settings"
 )
 
 func TestLoad(t *testing.T) {

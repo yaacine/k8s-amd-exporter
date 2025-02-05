@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
 )
 
 const (

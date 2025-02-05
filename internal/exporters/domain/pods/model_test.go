@@ -3,8 +3,8 @@ package pods_test
 import (
 	"testing"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
 	"github.com/stretchr/testify/assert"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/pods"
 )
 
 func TestNamespacedName(t *testing.T) {

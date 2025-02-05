@@ -7,11 +7,11 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
 	"github.com/prometheus/client_golang/prometheus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/gpus"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/metrics"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/exporters/domain/pods"
-	"gitlab.com/openinnovationai/platform/infra/amd/amd_smi_exporter_v2/internal/kubernetes"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/metrics"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/kubernetes"
 )
 
 type Setup struct {

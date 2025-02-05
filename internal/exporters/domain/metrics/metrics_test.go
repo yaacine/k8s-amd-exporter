@@ -6,8 +6,8 @@ import (
 	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/gpus"
 	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/metrics"
 	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/domain/pods"
-	"github.com/openinnovationai/k8s-amd-exporter/internal/exporters/testlogs"
 	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/metricfixtures"
+	"github.com/openinnovationai/k8s-amd-exporter/internal/sdk/unittests/testlogs"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/assert"
 )
